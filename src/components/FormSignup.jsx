@@ -1,11 +1,11 @@
 import React from 'react';
 import useForm from '../useForm';
 import validate from '../validateInfo';
-import './Form.css';
+import '../Form.css';
 
-const FormSignup = ({ submitForm }) => {
-    const {handleChange, values, handleSubmit, errors} 
-    = useForm(submitForm , validate);
+const FormSignup = ({ submitForm, callLogin }) => {
+    const {handleChange, values, handleSubmit, errors, handleLoginClick} 
+    = useForm(submitForm, callLogin, validate);
 
     return (
         <div className="form-content-right">
@@ -85,8 +85,8 @@ const FormSignup = ({ submitForm }) => {
                      Sign up
                  </button>
                  <span className="form-input-login">
-                     Already have an account? Login <a
-                     href="#">here </a>
+                     Already have an account? <a
+                     href="#" onClick={handleLoginClick}> Click here </a>
                  </span>
             </form>
         </div>

@@ -1,16 +1,16 @@
 import React from 'react'
 import validate from '../validateInfo';
 import useForm from '../useForm';
-import './Form.css';
+import '../Form.css';
 
-export const FormSignIn = ({ submitForm }) => {
-    const {handleChange, values, handleSubmit, errors} 
-    = useForm(submitForm , validate);
+export const FormSignIn = ({ submitForm, callLogin }) => {
+    const {handleChange, values, handleSubmit, errors, handleRegisterClick} 
+    = useForm(submitForm, callLogin, validate);
 
     return (
         <div className="form-content-right">
             <form className="form" onSubmit={handleSubmit}>
-                <h1>Get started with us today! Create your account by filling out the information below.</
+                <h1>Welcome back!</
                  h1>
                  <div className="form-inputs">
                      <label 
@@ -52,7 +52,7 @@ export const FormSignIn = ({ submitForm }) => {
                  </button>
                  <span className="form-input-login">
                      Need to create an account? <a
-                     href="#"> Click here </a>
+                     href="#" onClick={handleRegisterClick}> Click here </a>
                  </span>
             </form>
         </div>
